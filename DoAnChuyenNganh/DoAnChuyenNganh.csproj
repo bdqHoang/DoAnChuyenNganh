@@ -174,6 +174,78 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Data\cart.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\categorize.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\color.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\customer.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\customeraddress.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\DataAdminGearShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAdminGearShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\DataAdminGearShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\DataAdminGearShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\discount.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\employee.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\feedback.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\image.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\invoice.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\order.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\orderdetail.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\position.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\product.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\productdiscount.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\supplier.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\switch.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\warehouse.cs">
+      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Interface\IRepository.cs" />
+    <Compile Include="Areas\Admin\Service\RepositoryService.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -252,6 +324,16 @@
     <Compile Include="Service\RepositoryService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Data\DataAdminGearShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
+      <LastGenOutput>DataAdminGearShop.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Admin\Data\DataAdminGearShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
+      <LastGenOutput>DataAdminGearShop.cs</LastGenOutput>
+    </Content>
     <Content Include="Assets\css\animate.css" />
     <Content Include="Assets\css\backtotop.css" />
     <Content Include="Assets\css\bootstrap.css" />
@@ -545,6 +627,15 @@
     <Content Include="Assets\scss\utils\_fonts.scss" />
     <Content Include="Assets\scss\utils\_index.scss" />
     <Content Include="Assets\scss\utils\_mixins.scss" />
+    <Content Include=".editorconfig" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <EntityDeploy Include="Areas\Admin\Data\DataAdminGearShop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataAdminGearShop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Admin\Data\DataAdminGearShop.edmx.diagram">
+      <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -573,6 +664,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
