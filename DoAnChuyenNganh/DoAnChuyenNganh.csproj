@@ -177,19 +177,19 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Data\cart.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\categorize.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\color.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\customer.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\customeraddress.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\DataAdminGearShop.Context.cs">
       <AutoGen>True</AutoGen>
@@ -207,43 +207,58 @@
       <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\discount.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\employee.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\feedback.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\GearShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GearShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\GearShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GearShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Data\GearShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GearShop.edmx</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\image.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\invoice.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\order.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\orderdetail.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\position.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\product.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\productdiscount.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\supplier.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\switch.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Data\warehouse.cs">
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
+      <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Interface\IRepository.cs" />
     <Compile Include="Areas\Admin\Service\RepositoryService.cs" />
@@ -334,6 +349,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
       <LastGenOutput>DataAdminGearShop.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Admin\Data\GearShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GearShop.edmx</DependentUpon>
+      <LastGenOutput>GearShop.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Admin\Data\GearShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GearShop.edmx</DependentUpon>
+      <LastGenOutput>GearShop.cs</LastGenOutput>
     </Content>
     <Content Include="Areas\assets\css\material-dashboard.css" />
     <Content Include="Areas\assets\css\material-dashboard.min.css" />
@@ -922,6 +947,13 @@
     <Content Include="Areas\assets\scss\material-dashboard\_utilities-extend.scss" />
     <Content Include="Areas\assets\scss\material-dashboard\_utilities.scss" />
     <Content Include="Areas\assets\scss\material-dashboard\_variables.scss" />
+    <EntityDeploy Include="Areas\Admin\Data\GearShop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GearShop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Admin\Data\GearShop.edmx.diagram">
+      <DependentUpon>GearShop.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

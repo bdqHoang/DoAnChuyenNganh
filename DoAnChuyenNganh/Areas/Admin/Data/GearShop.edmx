@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="gearshopModel2.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cart">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ColorID" Type="varchar" MaxLength="11" />
+          <Property Name="ProductID" Type="varchar" MaxLength="11" />
+          <Property Name="SwitchID" Type="varchar" MaxLength="11" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="categorize">
+          <Key>
+            <PropertyRef Name="CategorizeID" />
+          </Key>
+          <Property Name="CategorizeID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="color">
+          <Key>
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ColorID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bool" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="11" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bool" />
+        </EntityType>
+        <EntityType Name="customeraddress">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="11" />
+          <Property Name="AddressDetail" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="discount">
+          <Key>
+            <PropertyRef Name="DiscountID" />
+          </Key>
+          <Property Name="DiscountID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="DiscountPercent" Type="double" />
+          <Property Name="NumberOfUse" Type="int" />
+          <Property Name="StartDate" Type="datetime" Precision="0" />
+          <Property Name="EndDate" Type="datetime" Precision="0" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="11" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="DateOfBirth" Type="datetime" Precision="0" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bool" />
+          <Property Name="PositionID" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="FeedBackID" />
+          </Key>
+          <Property Name="FeedBackID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="11" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="11" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="LikeProduct" Type="bit" />
+        </EntityType>
+        <EntityType Name="image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="11" />
+          <Property Name="Image" Type="blob" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="11" />
+          <Property Name="OrderID" Type="varchar" MaxLength="11" />
+          <Property Name="Total" Type="double" />
+          <Property Name="TotalDiscount" Type="double" />
+          <Property Name="TotalPayment" Type="double" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="orderdetail">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="ColorID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="SwitchID" />
+          </Key>
+          <Property Name="OrderID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ColorID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="SwitchID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DiscountID" Type="varchar" MaxLength="11" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="11" />
+          <Property Name="OrderDay" Type="datetime" Precision="0" />
+          <Property Name="ShipDate" Type="datetime" Precision="0" />
+          <Property Name="STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="positions">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bool" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Product" />
+          </Key>
+          <Property Name="Product" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="CategorizeID" Type="varchar" MaxLength="11" />
+          <Property Name="ProductDiscountID" Type="varchar" MaxLength="11" />
+          <Property Name="SupplierID" Type="varchar" MaxLength="11" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="ImportPrice" Type="double" />
+          <Property Name="SellPrice" Type="double" />
+          <Property Name="NumberOfLike" Type="int" />
+          <Property Name="Ratting" Type="double" />
+          <Property Name="NumberOfRatting" Type="int" />
+          <Property Name="Material" Type="varchar" MaxLength="100" />
+          <Property Name="Weight" Type="double" />
+          <Property Name="Warranty" Type="int" />
+          <Property Name="ConnectionType" Type="varchar" MaxLength="50" />
+          <Property Name="ProgrammableButton" Type="int" />
+          <Property Name="Size" Type="double" />
+          <Property Name="Description" Type="varchar" MaxLength="300" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productdiscount">
+          <Key>
+            <PropertyRef Name="ProductDiscountID" />
+          </Key>
+          <Property Name="ProductDiscountID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="DiscountPercent" Type="double" />
+          <Property Name="NumberOfUse" Type="int" />
+          <Property Name="StartDate" Type="datetime" Precision="0" />
+          <Property Name="EndDate" Type="datetime" Precision="0" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="11" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="ContractDate" Type="datetime" Precision="0" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bool" />
+        </EntityType>
+        <EntityType Name="switch">
+          <Key>
+            <PropertyRef Name="SwitchID" />
+          </Key>
+          <Property Name="SwitchID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bool" />
+        </EntityType>
+        <EntityType Name="warehouse">
+          <Key>
+            <PropertyRef Name="ColorID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="SwitchID" />
+          </Key>
+          <Property Name="ColorID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="SwitchID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityContainer Name="gearshopModel2StoreContainer">
+          <EntitySet Name="cart" EntityType="Self.cart" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="categorize" EntityType="Self.categorize" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="color" EntityType="Self.color" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="customeraddress" EntityType="Self.customeraddress" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="discount" EntityType="Self.discount" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="feedback" EntityType="Self.feedback" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="image" EntityType="Self.image" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="invoice" EntityType="Self.invoice" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="orderdetail" EntityType="Self.orderdetail" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="orders" EntityType="Self.orders" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="positions" EntityType="Self.positions" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="productdiscount" EntityType="Self.productdiscount" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="switch" EntityType="Self.switch" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="warehouse" EntityType="Self.warehouse" Schema="gearshop" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gearshopModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cart">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ColorID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="ProductID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="SwitchID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="categorize">
+          <Key>
+            <PropertyRef Name="CategorizeID" />
+          </Key>
+          <Property Name="CategorizeID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="color">
+          <Key>
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ColorID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="customeraddress">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="AddressDetail" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="discount">
+          <Key>
+            <PropertyRef Name="DiscountID" />
+          </Key>
+          <Property Name="DiscountID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercent" Type="Double" />
+          <Property Name="NumberOfUse" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="PositionID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="FeedBackID" />
+          </Key>
+          <Property Name="FeedBackID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="LikeProduct" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Image1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="OrderID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="TotalDiscount" Type="Double" />
+          <Property Name="TotalPayment" Type="Double" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="orderdetail">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="ColorID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="SwitchID" />
+          </Key>
+          <Property Name="OrderID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ColorID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SwitchID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DiscountID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="OrderDay" Type="DateTime" />
+          <Property Name="ShipDate" Type="DateTime" />
+          <Property Name="STATUS" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Product1" />
+          </Key>
+          <Property Name="Product1" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategorizeID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="ProductDiscountID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImportPrice" Type="Double" />
+          <Property Name="SellPrice" Type="Double" />
+          <Property Name="NumberOfLike" Type="Int32" />
+          <Property Name="Ratting" Type="Double" />
+          <Property Name="NumberOfRatting" Type="Int32" />
+          <Property Name="Material" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="Warranty" Type="Int32" />
+          <Property Name="ConnectionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProgrammableButton" Type="Int32" />
+          <Property Name="Size" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productdiscount">
+          <Key>
+            <PropertyRef Name="ProductDiscountID" />
+          </Key>
+          <Property Name="ProductDiscountID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercent" Type="Double" />
+          <Property Name="NumberOfUse" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContractDate" Type="DateTime" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="switch">
+          <Key>
+            <PropertyRef Name="SwitchID" />
+          </Key>
+          <Property Name="SwitchID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="warehouse">
+          <Key>
+            <PropertyRef Name="ColorID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="SwitchID" />
+          </Key>
+          <Property Name="ColorID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SwitchID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="GearShop" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="carts" EntityType="Self.cart" />
+          <EntitySet Name="categorizes" EntityType="Self.categorize" />
+          <EntitySet Name="colors" EntityType="Self.color" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="customeraddresses" EntityType="Self.customeraddress" />
+          <EntitySet Name="discounts" EntityType="Self.discount" />
+          <EntitySet Name="employees" EntityType="Self.employee" />
+          <EntitySet Name="feedbacks" EntityType="Self.feedback" />
+          <EntitySet Name="images" EntityType="Self.image" />
+          <EntitySet Name="invoices" EntityType="Self.invoice" />
+          <EntitySet Name="orderdetails" EntityType="Self.orderdetail" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="positions" EntityType="Self.position" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="productdiscounts" EntityType="Self.productdiscount" />
+          <EntitySet Name="suppliers" EntityType="Self.supplier" />
+          <EntitySet Name="switches" EntityType="Self.switch" />
+          <EntitySet Name="warehouses" EntityType="Self.warehouse" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gearshopModel2StoreContainer" CdmEntityContainer="GearShop">
+          <EntitySetMapping Name="carts">
+            <EntityTypeMapping TypeName="gearshopModel2.cart">
+              <MappingFragment StoreEntitySet="cart">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="SwitchID" ColumnName="SwitchID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categorizes">
+            <EntityTypeMapping TypeName="gearshopModel2.categorize">
+              <MappingFragment StoreEntitySet="categorize">
+                <ScalarProperty Name="CategorizeID" ColumnName="CategorizeID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="colors">
+            <EntityTypeMapping TypeName="gearshopModel2.color">
+              <MappingFragment StoreEntitySet="color">
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="gearshopModel2.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customeraddresses">
+            <EntityTypeMapping TypeName="gearshopModel2.customeraddress">
+              <MappingFragment StoreEntitySet="customeraddress">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="AddressDetail" ColumnName="AddressDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="discounts">
+            <EntityTypeMapping TypeName="gearshopModel2.discount">
+              <MappingFragment StoreEntitySet="discount">
+                <ScalarProperty Name="DiscountID" ColumnName="DiscountID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="NumberOfUse" ColumnName="NumberOfUse" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="gearshopModel2.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feedbacks">
+            <EntityTypeMapping TypeName="gearshopModel2.feedback">
+              <MappingFragment StoreEntitySet="feedback">
+                <ScalarProperty Name="FeedBackID" ColumnName="FeedBackID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="LikeProduct" ColumnName="LikeProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="images">
+            <EntityTypeMapping TypeName="gearshopModel2.image">
+              <MappingFragment StoreEntitySet="image">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Image1" ColumnName="Image" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invoices">
+            <EntityTypeMapping TypeName="gearshopModel2.invoice">
+              <MappingFragment StoreEntitySet="invoice">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+                <ScalarProperty Name="TotalPayment" ColumnName="TotalPayment" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderdetails">
+            <EntityTypeMapping TypeName="gearshopModel2.orderdetail">
+              <MappingFragment StoreEntitySet="orderdetail">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="SwitchID" ColumnName="SwitchID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="gearshopModel2.order">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="DiscountID" ColumnName="DiscountID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="OrderDay" ColumnName="OrderDay" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="positions">
+            <EntityTypeMapping TypeName="gearshopModel2.position">
+              <MappingFragment StoreEntitySet="positions">
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="gearshopModel2.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="Product1" ColumnName="Product" />
+                <ScalarProperty Name="CategorizeID" ColumnName="CategorizeID" />
+                <ScalarProperty Name="ProductDiscountID" ColumnName="ProductDiscountID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ImportPrice" ColumnName="ImportPrice" />
+                <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+                <ScalarProperty Name="NumberOfLike" ColumnName="NumberOfLike" />
+                <ScalarProperty Name="Ratting" ColumnName="Ratting" />
+                <ScalarProperty Name="NumberOfRatting" ColumnName="NumberOfRatting" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="ConnectionType" ColumnName="ConnectionType" />
+                <ScalarProperty Name="ProgrammableButton" ColumnName="ProgrammableButton" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productdiscounts">
+            <EntityTypeMapping TypeName="gearshopModel2.productdiscount">
+              <MappingFragment StoreEntitySet="productdiscount">
+                <ScalarProperty Name="ProductDiscountID" ColumnName="ProductDiscountID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="NumberOfUse" ColumnName="NumberOfUse" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suppliers">
+            <EntityTypeMapping TypeName="gearshopModel2.supplier">
+              <MappingFragment StoreEntitySet="supplier">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContractDate" ColumnName="ContractDate" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="switches">
+            <EntityTypeMapping TypeName="gearshopModel2.switch">
+              <MappingFragment StoreEntitySet="switch">
+                <ScalarProperty Name="SwitchID" ColumnName="SwitchID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="warehouses">
+            <EntityTypeMapping TypeName="gearshopModel2.warehouse">
+              <MappingFragment StoreEntitySet="warehouse">
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="SwitchID" ColumnName="SwitchID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
