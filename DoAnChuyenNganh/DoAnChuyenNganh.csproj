@@ -191,21 +191,6 @@
     <Compile Include="Areas\Admin\Data\customeraddress.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Admin\Data\DataAdminGearShop.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataAdminGearShop.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Data\DataAdminGearShop.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataAdminGearShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Data\DataAdminGearShop.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Areas\Admin\Data\discount.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
@@ -236,6 +221,9 @@
     <Compile Include="Areas\Admin\Data\invoice.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\Data\option.cs">
+      <DependentUpon>GearShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\Data\order.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
@@ -254,9 +242,6 @@
     <Compile Include="Areas\Admin\Data\supplier.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Admin\Data\switch.cs">
-      <DependentUpon>GearShop.tt</DependentUpon>
-    </Compile>
     <Compile Include="Areas\Admin\Data\warehouse.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
@@ -264,6 +249,7 @@
     <Compile Include="Areas\Admin\Service\RepositoryService.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -313,6 +299,9 @@
     <Compile Include="Models\invoice.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\option.cs">
+      <DependentUpon>GearShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\order.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
@@ -331,9 +320,6 @@
     <Compile Include="Models\supplier.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\switch.cs">
-      <DependentUpon>GearShop.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\warehouse.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
@@ -341,16 +327,6 @@
     <Compile Include="Service\RepositoryService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Data\DataAdminGearShop.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
-      <LastGenOutput>DataAdminGearShop.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Admin\Data\DataAdminGearShop.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
-      <LastGenOutput>DataAdminGearShop.cs</LastGenOutput>
-    </Content>
     <Content Include="Areas\Admin\Data\GearShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GearShop.edmx</DependentUpon>
@@ -474,6 +450,7 @@
     <Content Include="Assets\css\owl-carousel.css" />
     <Content Include="Assets\css\preloader.css" />
     <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\css\StyleProfile.css" />
     <Content Include="Assets\css\swiper-bundle.css" />
     <Content Include="Assets\css\ui-range-slider.css" />
     <Content Include="Assets\flaticon\flaticon.css" />
@@ -687,13 +664,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\GearShop.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GearShop.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\GearShop.edmx.diagram">
-      <DependentUpon>GearShop.edmx</DependentUpon>
-    </Content>
     <Content Include="Assets\css\style.css.map" />
     <Content Include="Assets\flaticon\flaticon.css.map" />
     <Content Include="Assets\flaticon\flaticon.eot" />
@@ -757,13 +727,6 @@
     <Content Include="Assets\scss\utils\_mixins.scss" />
     <Content Include=".editorconfig" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <EntityDeploy Include="Areas\Admin\Data\DataAdminGearShop.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataAdminGearShop.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Areas\Admin\Data\DataAdminGearShop.edmx.diagram">
-      <DependentUpon>DataAdminGearShop.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
@@ -955,6 +918,13 @@
     <Content Include="Areas\Admin\Data\GearShop.edmx.diagram">
       <DependentUpon>GearShop.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\GearShop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GearShop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GearShop.edmx.diagram">
+      <DependentUpon>GearShop.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -981,6 +951,8 @@
     <Content Include="Views\Home\DetailProduct.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\CheckOut.cshtml" />
+    <Content Include="Views\Home\Shop.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

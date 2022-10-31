@@ -17,7 +17,7 @@ namespace DoAnChuyenNganh.Areas.Admin.Data
         public string CustomerID { get; set; }
         public string ColorID { get; set; }
         public string ProductID { get; set; }
-        public string SwitchID { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public string OptionID { get; set; }
+        public int Quantity { get; set; }
     }
 }

@@ -6,23 +6,12 @@ using System.Web.Mvc;
 
 namespace DoAnChuyenNganh.Controllers
 {
-    public class HomeController : Controller
+    public class UserController : Controller
     {
+        // GET: User
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult Shop()
-        {
-            return View();
-        }
-
-        public ActionResult DetailProduct(string id)
-        {
-            return View();
-        }
-
-
     }
 }
