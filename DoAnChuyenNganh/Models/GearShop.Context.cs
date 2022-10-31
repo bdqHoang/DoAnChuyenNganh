@@ -13,10 +13,10 @@ namespace DoAnChuyenNganh.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DataGearShop : DbContext
+    public partial class GearShopEntity : DbContext
     {
-        public DataGearShop()
-            : base("name=DataGearShop")
+        public GearShopEntity()
+            : base("name=GearShopEntity")
         {
         }
     
@@ -35,13 +35,13 @@ namespace DoAnChuyenNganh.Models
         public virtual DbSet<feedback> feedbacks { get; set; }
         public virtual DbSet<image> images { get; set; }
         public virtual DbSet<invoice> invoices { get; set; }
+        public virtual DbSet<option> options { get; set; }
         public virtual DbSet<orderdetail> orderdetails { get; set; }
         public virtual DbSet<order> orders { get; set; }
         public virtual DbSet<position> positions { get; set; }
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<productdiscount> productdiscounts { get; set; }
         public virtual DbSet<supplier> suppliers { get; set; }
-        public virtual DbSet<@switch> switches { get; set; }
         public virtual DbSet<warehouse> warehouses { get; set; }
     }
 }

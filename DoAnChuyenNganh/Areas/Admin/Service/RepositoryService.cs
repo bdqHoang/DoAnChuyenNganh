@@ -12,7 +12,7 @@ namespace DoAnChuyenNganh.Areas
     {
         public DbSet<T> entities;
         private readonly DbContext _context;
-        public RepositoryService(DataAdminGearShop context)
+        public RepositoryService(GearShop context)
         {
             _context = context;
             entities = context.Set<T>();

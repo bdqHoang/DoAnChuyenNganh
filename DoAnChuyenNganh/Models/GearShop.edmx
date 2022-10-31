@@ -8,12 +8,14 @@
         <EntityType Name="cart">
           <Key>
             <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ColorID" />
+            <PropertyRef Name="OptionID" />
           </Key>
           <Property Name="CustomerID" Type="varchar" MaxLength="11" Nullable="false" />
-          <Property Name="ColorID" Type="varchar" MaxLength="11" />
+          <Property Name="ColorID" Type="varchar" MaxLength="11" Nullable="false" />
           <Property Name="ProductID" Type="varchar" MaxLength="11" />
-          <Property Name="SwitchID" Type="varchar" MaxLength="11" />
-          <Property Name="Quantity" Type="int" />
+          <Property Name="OptionID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="categorize">
           <Key>
@@ -134,6 +136,18 @@
           <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
           <Property Name="Status" Type="bit" />
         </EntityType>
+        <EntityType Name="options">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" Precision="0" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateAt" Type="datetime" Precision="0" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bool" />
+        </EntityType>
         <EntityType Name="orderdetail">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -228,18 +242,6 @@
           <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
           <Property Name="Status" Type="bool" />
         </EntityType>
-        <EntityType Name="switch">
-          <Key>
-            <PropertyRef Name="SwitchID" />
-          </Key>
-          <Property Name="SwitchID" Type="varchar" MaxLength="11" Nullable="false" />
-          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
-          <Property Name="CreatedAt" Type="datetime" Precision="0" />
-          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
-          <Property Name="UpdateAt" Type="datetime" Precision="0" />
-          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
-          <Property Name="Status" Type="bool" />
-        </EntityType>
         <EntityType Name="warehouse">
           <Key>
             <PropertyRef Name="ColorID" />
@@ -262,13 +264,13 @@
           <EntitySet Name="feedback" EntityType="Self.feedback" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="image" EntityType="Self.image" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="invoice" EntityType="Self.invoice" Schema="gearshop" store:Type="Tables" />
+          <EntitySet Name="options" EntityType="Self.options" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="orderdetail" EntityType="Self.orderdetail" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="orders" EntityType="Self.orders" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="positions" EntityType="Self.positions" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="productdiscount" EntityType="Self.productdiscount" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="supplier" EntityType="Self.supplier" Schema="gearshop" store:Type="Tables" />
-          <EntitySet Name="switch" EntityType="Self.switch" Schema="gearshop" store:Type="Tables" />
           <EntitySet Name="warehouse" EntityType="Self.warehouse" Schema="gearshop" store:Type="Tables" />
         </EntityContainer>
       </Schema>
@@ -279,12 +281,14 @@
         <EntityType Name="cart">
           <Key>
             <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ColorID" />
+            <PropertyRef Name="OptionID" />
           </Key>
           <Property Name="CustomerID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ColorID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="ColorID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProductID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="SwitchID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="Quantity" Type="Int32" />
+          <Property Name="OptionID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="categorize">
           <Key>
@@ -405,6 +409,18 @@
           <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Boolean" />
         </EntityType>
+        <EntityType Name="option">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateAt" Type="DateTime" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
         <EntityType Name="orderdetail">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -499,18 +515,6 @@
           <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Boolean" />
         </EntityType>
-        <EntityType Name="switch">
-          <Key>
-            <PropertyRef Name="SwitchID" />
-          </Key>
-          <Property Name="SwitchID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedAt" Type="DateTime" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UpdateAt" Type="DateTime" />
-          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Boolean" />
-        </EntityType>
         <EntityType Name="warehouse">
           <Key>
             <PropertyRef Name="ColorID" />
@@ -522,7 +526,7 @@
           <Property Name="SwitchID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="DataGearShop" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GearShopEntity" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="carts" EntityType="Self.cart" />
           <EntitySet Name="categorizes" EntityType="Self.categorize" />
           <EntitySet Name="colors" EntityType="Self.color" />
@@ -533,13 +537,13 @@
           <EntitySet Name="feedbacks" EntityType="Self.feedback" />
           <EntitySet Name="images" EntityType="Self.image" />
           <EntitySet Name="invoices" EntityType="Self.invoice" />
+          <EntitySet Name="options" EntityType="Self.option" />
           <EntitySet Name="orderdetails" EntityType="Self.orderdetail" />
           <EntitySet Name="orders" EntityType="Self.order" />
           <EntitySet Name="positions" EntityType="Self.position" />
           <EntitySet Name="products" EntityType="Self.product" />
           <EntitySet Name="productdiscounts" EntityType="Self.productdiscount" />
           <EntitySet Name="suppliers" EntityType="Self.supplier" />
-          <EntitySet Name="switches" EntityType="Self.switch" />
           <EntitySet Name="warehouses" EntityType="Self.warehouse" />
         </EntityContainer>
       </Schema>
@@ -547,14 +551,14 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="gearshopModelStoreContainer" CdmEntityContainer="DataGearShop">
+        <EntityContainerMapping StorageEntityContainer="gearshopModelStoreContainer" CdmEntityContainer="GearShopEntity">
           <EntitySetMapping Name="carts">
             <EntityTypeMapping TypeName="gearshopModel.cart">
               <MappingFragment StoreEntitySet="cart">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="ColorID" ColumnName="ColorID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="SwitchID" ColumnName="SwitchID" />
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -687,6 +691,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="options">
+            <EntityTypeMapping TypeName="gearshopModel.option">
+              <MappingFragment StoreEntitySet="options">
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="orderdetails">
             <EntityTypeMapping TypeName="gearshopModel.orderdetail">
               <MappingFragment StoreEntitySet="orderdetail">
@@ -776,19 +793,6 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="ContractDate" ColumnName="ContractDate" />
-                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="switches">
-            <EntityTypeMapping TypeName="gearshopModel.switch">
-              <MappingFragment StoreEntitySet="switch">
-                <ScalarProperty Name="SwitchID" ColumnName="SwitchID" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />

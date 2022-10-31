@@ -12,7 +12,7 @@ namespace DoAnChuyenNganh.Services
     {
         public DbSet<T> entities;
         private readonly DbContext _context;
-        public RepositoryService(DataGearShop context)
+        public RepositoryService(GearShopEntity context)
         {
             _context = context;
             entities = context.Set<T>();

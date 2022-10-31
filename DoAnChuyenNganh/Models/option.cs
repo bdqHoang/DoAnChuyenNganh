@@ -12,9 +12,9 @@ namespace DoAnChuyenNganh.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class @switch
+    public partial class option
     {
-        public string SwitchID { get; set; }
+        public string OptionID { get; set; }
         public string DisplayName { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public string CreatedBy { get; set; }
