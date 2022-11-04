@@ -175,7 +175,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AddressManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategorizeManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DiscountManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DiscountProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmployeeManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InvoiceManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductImageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SupplierManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WareHouseManagementController.cs" />
     <Compile Include="Areas\Admin\Data\cart.cs">
       <DependentUpon>GearShop.tt</DependentUpon>
     </Compile>
@@ -429,6 +440,7 @@
     <Content Include="Areas\assets\img\vr-bg.jpg" />
     <Content Include="Areas\assets\js\core\bootstrap.bundle.min.js" />
     <Content Include="Areas\assets\js\core\bootstrap.min.js" />
+    <Content Include="Areas\assets\js\core\jquery.min.js" />
     <Content Include="Areas\assets\js\core\popper.min.js" />
     <Content Include="Areas\assets\js\material-dashboard.js" />
     <Content Include="Areas\assets\js\material-dashboard.min.js" />
@@ -505,9 +517,7 @@
     <Content Include="Assets\img\icon\ship.png" />
     <Content Include="Assets\img\icon\trophy.png" />
     <Content Include="Assets\img\icon\user.png" />
-    <Content Include="Assets\img\logo\logo-2.png" />
-    <Content Include="Assets\img\logo\logo-white.png" />
-    <Content Include="Assets\img\logo\logo.png" />
+    <Content Include="Assets\img\logo\storelogo.png" />
     <Content Include="Assets\img\payment\payment-2.png" />
     <Content Include="Assets\img\payment\payment.jpg" />
     <Content Include="Assets\img\products\2\product-1.jpg" />
@@ -925,6 +935,17 @@
     <Content Include="Models\GearShop.edmx.diagram">
       <DependentUpon>GearShop.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\CategorizeManagement\CategorizeManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\AddressManagement\AddressManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountManagement\DiscountManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountProduct\DiscountProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\EmployeeManagement\EmployeeManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\InvoiceManagement\InvoiceManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductImage\ProductImage.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductManagement\ProductManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\SupplierManagement\SupplierManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\UserManagement\UserManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\WareHouseManagement\WareHouseManagement.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
