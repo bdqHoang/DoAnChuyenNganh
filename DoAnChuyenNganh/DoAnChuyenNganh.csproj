@@ -617,8 +617,12 @@
     <Content Include="Assets\img\slider\2\slider-2.jpg" />
     <Content Include="Assets\img\slider\3\slider-1.jpg" />
     <Content Include="Assets\img\slider\3\slider-2.jpg" />
-    <Content Include="Assets\img\slider\slider-1.jpg" />
-    <Content Include="Assets\img\slider\slider-2.jpg" />
+    <Content Include="Assets\img\slider\Banner2.jpg" />
+    <Content Include="Assets\img\slider\Banner3.jpg" />
+    <Content Include="Assets\img\slider\Banner4.jpg" />
+    <Content Include="Assets\img\slider\Banner5.jpg" />
+    <Content Include="Assets\img\slider\Banner6.jpg" />
+    <Content Include="Assets\img\slider\Banner7.jpg" />
     <Content Include="Assets\img\team\team-member-1.jpg" />
     <Content Include="Assets\img\team\team-member-2.jpg" />
     <Content Include="Assets\img\team\team-member-3.jpg" />
